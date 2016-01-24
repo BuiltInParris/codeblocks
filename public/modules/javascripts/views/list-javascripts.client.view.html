@@ -1,0 +1,20 @@
+<section data-ng-controller="JavascriptsController" data-ng-init="find()" class="container">
+    <div class="page-header">
+        <h1>Javascript Functions</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="javascript in javascripts" data-ng-href="#!/javascripts/{{javascript._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="javascript.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="javascript.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="javascript.name"></h4>
+			<h5 class="list-group-item-text" data-ng-bind="javascript.description"></h5>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!javascripts.$resolved || javascripts.length">
+    	No Javascripts yet, why don't you <a href="/#!/javascripts/create">create one</a>?
+    </div>
+</section>

@@ -1,0 +1,181 @@
+<style>
+.languageDiv {
+    background: url(modules/language/img/backimg.jpg) 100% 0 fixed;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 200px 0;
+}
+
+.javascriptDiv {
+    background: url(modules/language/img/javascriptBackground.png) 100% 0 fixed; 
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 200px 0;
+}
+.pythonDiv {
+    background: url(modules/language/img/pythonBackground.jpg) 100% 0 fixed;        
+    background-position: center center;
+    background-size:cover;
+    height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 200px 0;
+}
+.cssDiv {
+    background: url(modules/language/img/cssBackground.jpg) 100% 0 fixed;        
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 200px 0;
+}
+.rubyDiv {
+    background: url(modules/language/img/rubyBackground.jpg) 100% 0 fixed;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    padding: 200px 0;
+}
+</style>
+<div style="position:fixed;padding:19px;z-index:999;">
+	<img src="modules/core/img/brand/logo.png" width="100" height="100">
+</div>
+<div data-ng-controller="LanguageController">
+<section class="languageDiv" data-speed="10">
+        <div class="text-center container">
+		<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+                <div class="row">
+			<div class="col-md-6">
+				<h2 style="text-align:center;color:white">Can't remember code snippets?</h2>
+			</div>
+			<div class="col-md-2">
+			</div>
+                        <div class="col-md-4" style="color:white">
+                        	<h2>Choose a language.</h2>
+				<br>
+				<div class="dropdown center-block">
+					<button class="btn btn-default dropdown-toggle" type="button" id="lang_d_d" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						Language
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="language" role="menu">
+						<li class="dropdown"  ng-repeat="language in languages"><a href="#{{language}}">{{ language }}</a></li>
+					</ul>
+				</div>
+                        </div>
+                </div>
+		</div>
+		<div class="col-md-1"></div>
+		</div>
+        </div>
+</section>
+<section id="Javascript" data-speed="2" data-type="background" class="javascriptDiv" data-ng-controller="JavascriptsController" data-ng-init="find()">
+	<div class="text-center container">
+		<div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                <div class="row">
+                        <div class="col-md-6 well">
+                        	<prettify target="codeBox" style="white-space: pre-wrap;"><pre class="prettyprint linenums:1">
+{{target}}</pre>
+				</prettify>
+                        </div>
+			<div class="col-md-2"></div>
+			<div class="col-md-4 well">
+                                <h2>Javascript</h2>
+                                <br>
+				<form class="form-inline" role="form">
+                                	<div class="form-group">
+                                        	<input  type="text" 
+							id="javascriptSearch" 
+							class="form-control"
+							autocomplete="off" 
+							data-typeahead-editable="false" 
+							data-typeahead="function.name for function in javascripts | filter:$viewValue | limitTo:8" 
+							data-ng-model="selectedFunction"
+							typeahead-on-select="changeFunction($item.code, $item.description)"
+							placeholder="Search Functions">
+                                	</div>
+                                </form>
+				<br>
+				<div ng-bind="descriptionBox" style="color:#5D67C4">
+				</div>	
+                        </div>
+		</div>
+		<div class="col-md-1"></div>
+                </div>
+        </div>
+</section>
+<section id="Python" data-speed="2" data-type="background" class="pythonDiv" data-ng-controller="PythonsController" data-ng-init="find()">
+        <div class="text-center container">
+                <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                <div class="row">
+                        <div class="col-md-6 well">
+                                <prettify target="codeBox" style="white-space: pre-wrap;"><pre class="prettyprint linenums:1">
+{{target}}</pre>
+                                </prettify>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4 well">
+                                <h2>Python</h2>
+                                <br>
+				<form class="form-inline" role="form">
+                                        <div class="form-group">
+                                                <input  type="text" 
+                                                        id="pythonSearch" 
+                                                        class="form-control"
+                                                        autocomplete="off" 
+                                                        data-typeahead-editable="false" 
+                                                        data-typeahead="function.name for function in pythons | filter:$viewValue | limitTo:8" 
+                                                        data-ng-model="selectedFunction"
+                                                        typeahead-on-select="changeFunction($item.code, $item.description)"
+                                                        placeholder="Search Functions">
+                                        </div>
+                                </form>
+
+				<!--
+                                <div class="dropdown">
+                                        <button class="btn btn-default dropdown-toggle" type="button" id="lang_d_d" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                Functions
+                                                <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="function" role="menu">
+                                                <li class="dropdown"  ng-repeat="function in pythons"><div ng-click="changeFunction(function.code, function.description)">{{ function.name }}</div></li>
+                                        </ul>
+                                </div>-->
+                                <br>
+                                <div ng-bind="descriptionBox" style="color:#5D67C4">
+                                </div>
+                        </div>
+                </div>
+                <div class="col-md-1"></div>
+                </div>
+        </div>
+</section>
+
+<style>
+.text-center{text-align:inherit};
+</style>

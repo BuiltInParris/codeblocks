@@ -1,0 +1,26 @@
+<section data-ng-controller="PythonsController" class="container" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="python.name"></h1>
+		<h4 data-ng-bind="python.description"></h4>
+		<div>
+                	<pre class="prettyprint" data-ng-bind="python.code" style="padding:12px">
+                	</pre>
+                </div>
+	</div>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == python.user._id))">
+		<a class="btn btn-primary" href="/#!/pythons/{{python._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="python.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="python.user.displayName"></span>
+		</em>
+	</small>
+</section>
