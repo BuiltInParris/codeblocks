@@ -1,6 +1,6 @@
-<section data-ng-controller="PythonsController" data-ng-init="findOne()">
+<section data-ng-controller="ObjectiveCsController" class="container" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Python Functions</h1>
+        <h1>Edit ObjectiveC Functions</h1>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="update()" novalidate>
@@ -8,19 +8,19 @@
                 <div class="form-group">
                     <label class="control-label" for="name">Name</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="python.name" id="name" class="form-control" placeholder="Name" required>
+                        <input type="text" data-ng-model="objectivec.name" id="name" class="form-control" placeholder="Name" required>
                     </div>
                 </div>
 		<div class="form-group">
                     <label class="control-label" for="description">Description</label>
                     <div class="controls">
-                        <input type="text" data-ng-model="python.description" id="description" class="form-control" placeholder="Description" required>
+                        <input type="text" data-ng-model="objectivec.description" id="description" class="form-control" placeholder="Description" required>
                     </div>
                 </div>
 		<div class="form-group">
                     <label class="control-label" for="code">Code</label>
                     <div class="controls">
-                        <textarea data-ng-model="python.code" id="code" class="form-control" placeholder="Code" required></textarea>
+                        <textarea data-ng-model="objectivec.code" id="code" class="form-control" placeholder="Code" required></textarea>
                     </div>
                 </div>
                 <div class="form-group">

@@ -57,8 +57,8 @@ angular.module('pythons').controller('PythonsController', ['$scope', '$statePara
 		$scope.find = function() {
 			$scope.pythons = Pythons.query();
 		};
-
-		$scope.codeBox = '# Here\'s where the Python code will appear! Select something on the right!';
+	
+		$scope.codeBox = '//Here\'s where the Python code will appear! Select something on the right!';
 		$scope.descriptionBox = 'Here\'s where the description will appear.';
 		
 		$scope.selectedFunction = '';	

@@ -3,7 +3,7 @@
 module.exports = {
 	app: {
 		title: 'Blocks',
-		description: 'A universal template tool.',
+		description: 'Code snippets for all the languages!',
 		keywords: 'template,tool,blocks,code,generator,class'
 	},
 	port: process.env.PORT || 3000,

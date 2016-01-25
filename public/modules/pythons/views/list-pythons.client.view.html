@@ -1,6 +1,6 @@
-<section data-ng-controller="PythonsController" class="container" data-ng-init="find()">
+<section data-ng-controller="PythonsController" data-ng-init="find()" class="container">
     <div class="page-header">
-        <h1>Pythons</h1>
+        <h1>Python Functions</h1>
     </div>
     <div class="list-group">
         <a data-ng-repeat="python in pythons" data-ng-href="#!/pythons/{{python._id}}" class="list-group-item">
@@ -11,8 +11,7 @@
 				<span data-ng-bind="python.user.displayName"></span>
 			</small>
 			<h4 class="list-group-item-heading" data-ng-bind="python.name"></h4>
-			<h4 class="list-group-item-heading" data-ng-bind="python.description"></h4>
-			<h6 class="list-group-item-heading" data-ng-bind="python.code"></h4>
+			<h5 class="list-group-item-text" data-ng-bind="python.description"></h5>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!pythons.$resolved || pythons.length">

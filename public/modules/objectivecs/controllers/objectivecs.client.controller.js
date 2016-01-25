@@ -1,22 +1,22 @@
 'use strict';
 
-// Javascripts controller
-angular.module('javascripts').controller('JavascriptsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Javascripts',
-	function($scope, $stateParams, $location, Authentication, Javascripts) {
+// ObjectiveCs controller
+angular.module('objectivecs').controller('ObjectiveCsController', ['$scope', '$stateParams', '$location', 'Authentication', 'ObjectiveCs',
+	function($scope, $stateParams, $location, Authentication, ObjectiveCs) {
 		$scope.authentication = Authentication;
 
-		// Create new Javascript
+		// Create new ObjectiveC
 		$scope.create = function() {
-			// Create new Javascript object
-			var javascript = new Javascripts ({
+			// Create new ObjectiveC object
+			var objectivec = new ObjectiveCs ({
 				name: this.name,
 				description: this.description,
 				code: this.code
 			});
 
 			// Redirect after save
-			javascript.$save(function(response) {
-				$location.path('javascripts/' + response._id);
+			objectivec.$save(function(response) {
+				$location.path('objectivecs/' + response._id);
 
 				// Clear form fields
 				$scope.name = '';
@@ -25,40 +25,40 @@ angular.module('javascripts').controller('JavascriptsController', ['$scope', '$s
 			});
 		};
 
-		// Remove existing Javascript
-		$scope.remove = function(javascript) {
-			if ( javascript ) { 
-				javascript.$remove();
+		// Remove existing ObjectiveC
+		$scope.remove = function(objectivec) {
+			if ( objectivec ) { 
+				objectivec.$remove();
 
-				for (var i in $scope.javascripts) {
-					if ($scope.javascripts [i] === javascript) {
-						$scope.javascripts.splice(i, 1);
+				for (var i in $scope.objectivecs) {
+					if ($scope.objectivecs [i] === objectivec) {
+						$scope.objectivecs.splice(i, 1);
 					}
 				}
 			} else {
-				$scope.javascript.$remove(function() {
-					$location.path('javascripts');
+				$scope.objectivec.$remove(function() {
+					$location.path('objectivecs');
 				});
 			}
 		};
 
-		// Update existing Javascript
+		// Update existing ObjectiveC
 		$scope.update = function() {
-			var javascript = $scope.javascript;
+			var objectivec = $scope.objectivec;
 
-			javascript.$update(function() {
-				$location.path('javascripts/' + javascript._id);
+			objectivec.$update(function() {
+				$location.path('objectivecs/' + objectivec._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
 		};
 
-		// Find a list of Javascripts
+		// Find a list of ObjectiveCs
 		$scope.find = function() {
-			$scope.javascripts = Javascripts.query();
+			$scope.objectivecs = ObjectiveCs.query();
 		};
-	
-		$scope.codeBox = '//Here\'s where the Javascript code will appear! Select something on the right!';
+
+		$scope.codeBox = '//Here\'s where the ObjectiveC code will appear! Select something on the right!';
 		$scope.descriptionBox = 'Here\'s where the description will appear.';
 		
 		$scope.selectedFunction = '';	
@@ -67,16 +67,16 @@ angular.module('javascripts').controller('JavascriptsController', ['$scope', '$s
 			$scope.descriptionBox = description;
 		};
 		
-		// Find existing Javascript
+		// Find existing ObjectiveC
 		$scope.findOne = function() {
-			$scope.javascript = Javascripts.get({ 
-				javascriptId: $stateParams.javascriptId
+			$scope.objectivec = ObjectiveCs.get({ 
+				objectivecId: $stateParams.objectivecId
 			});
 		};
 	}
 ]);
-
-angular.module('javascripts').directive('prettify', ['$compile', '$timeout', function ($compile, $timeout) {
+/*
+angular.module('objectivecs').directive('prettify', ['$compile', '$timeout', function ($compile, $timeout) {
     return {
         restrict: 'E',
         scope: {
@@ -98,5 +98,4 @@ angular.module('javascripts').directive('prettify', ['$compile', '$timeout', fun
             update();
         }
     };
-}]);
-
+}]);*/

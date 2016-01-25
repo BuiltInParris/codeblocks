@@ -4,8 +4,8 @@
 angular.module('pythons').run(['Menus',
 	function(Menus) {
 		// Set top bar menu items
-		Menus.addMenuItem('topbar', 'Pythons', 'pythons', 'dropdown', '/pythons(/create)?');
-		Menus.addSubMenuItem('topbar', 'Pythons', 'List Python Functions', 'pythons');
-		Menus.addSubMenuItem('topbar', 'Pythons', 'New Python', 'pythons/create');
+		Menus.addMenuItem('topbar', 'Python', 'pythons', 'dropdown', '/pythons(/create)?');
+		Menus.addSubMenuItem('topbar', 'pythons', 'List functions', 'pythons');
+		Menus.addSubMenuItem('topbar', 'pythons', 'New function', 'pythons/create');
 	}
 ]);

@@ -3,7 +3,7 @@
 module.exports = {
 	db: 'mongodb://localhost/blocks-dev',
 	app: {
-		title: 'Blocks - Development Environment'
+		title: 'Blocks - Code Snippets'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

@@ -1,0 +1,26 @@
+<section data-ng-controller="ObjectiveCsController" class="container" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1 data-ng-bind="objectivec.name"></h1>
+		<h4 data-ng-bind="objectivec.description"></h4>
+		<div>
+                	<pre class="prettyprint" data-ng-bind="objectivec.code" style="padding:12px">
+                	</pre>
+                </div>
+	</div>
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == objectivec.user._id))">
+		<a class="btn btn-primary" href="/#!/objectivecs/{{objectivec._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			Posted on
+			<span data-ng-bind="objectivec.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="objectivec.user.displayName"></span>
+		</em>
+	</small>
+</section>

@@ -4,7 +4,7 @@ module.exports = {
 	db: 'mongodb://localhost/blocks-test',
 	port: 3001,
 	app: {
-		title: 'Blocks - Test Environment'
+		title: 'Blocks - Code Snippets'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

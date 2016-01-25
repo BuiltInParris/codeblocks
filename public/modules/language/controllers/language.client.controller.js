@@ -3,7 +3,7 @@
 
 angular.module('language').controller('LanguageController', ['$scope',
 	function($scope) {
-		$scope.languages = ['Ruby', 'Python', 'Javascript', 'CSS'];
+		$scope.languages = ['Javascript', 'Objective-C', 'Python', 'CSS'];
 		// Javascript controller logic
 		// ...
 	}
